@@ -7,7 +7,7 @@
 
 body {
   background: #eaeaea;
-  overflow: hidden;
+  overflow: hidden; /* Kompyuterda skrollni o'chirish */
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -195,4 +195,100 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+/* ========================================= */
+/* MOBIL QURILMALAR UCHUN RESPONSIV STILLAR  */
+/* ========================================= */
+
+/* Ekran kengligi 768px dan kichik bo'lsa, ushbu stillar ishga tushadi */
+@media (max-width: 768px) {
+  body {
+    /* Mobil qurilmada skroll qilish imkonini berish */
+    overflow: auto;
+  }
+
+  .container {
+    /* Konteynerni ekranga sig'dirish */
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    height: auto;
+    min-height: 100vh; /* Ekran balandligini to'liq egallash */
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .container .slide {
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 80px; /* Tugmalar uchun joy */
+  }
+  
+  /* Mobil qurilmada faqat bitta (aktiv) slayderni ko'rsatamiz */
+  .container .slide .item {
+      display: none; /* Barcha slayderlarni yashiramiz */
+  }
+
+  /* ... va faqat ikkinchi (aktiv) slayderni ko'rsatamiz */
+  .slide .item:nth-child(2) {
+    display: block;
+    position: relative;
+    width: 90%;
+    height: 60vh; /* Ekran balandligining 60% qismini egallaydi */
+    max-height: 450px;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+    transform: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  }
+
+  .item .content {
+    /* Matnni rasmning pastki qismiga joylashtirish */
+    top: auto;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    width: auto;
+    transform: none;
+    padding: 15px;
+  }
+  
+  .content .name {
+    font-size: 24px;
+  }
+  
+  .content .des {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .content button {
+    padding: 8px 16px;
+  }
+
+  /* Tugmalarni pastga joylashtirish */
+  .button {
+    bottom: 25px;
+  }
+
+  /* Batafsil ko'rinish oynasi uchun mobil stillar */
+  .news-detail-content {
+      margin: 20px auto;
+      padding: 15px;
+  }
+
+  .news-detail-content h1 {
+      font-size: 28px;
+  }
+
+  .news-detail-content p {
+      font-size: 16px;
+  }
 }
